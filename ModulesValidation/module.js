@@ -1,0 +1,11 @@
+"use strict";
+exports.__esModule = true;
+var constant_1 = require("./constant/constant");
+var validators_1 = require("./validators/validators");
+// let email = 'abhishekpoojara@gmail.com';
+// let zipCode = '360005';
+var validator = new validators_1.ValidatorCLS();
+var resultOfEmailValidate = validator.isValidStr('abhishekpoojara@gmail.com', constant_1.Constants.emailRegex);
+var resultOfZipCodeValidate = validator.isValidStr('360005', constant_1.Constants.numberRegex);
+console.log("Valid Email Id OR Not: " + resultOfEmailValidate);
+console.log("Valid Zip Code OR Not: " + resultOfZipCodeValidate);
