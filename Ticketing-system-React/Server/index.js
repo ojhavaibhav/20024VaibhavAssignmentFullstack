@@ -16,11 +16,11 @@ app.use('/users',userRouter)
 app.use('/tickets',ticketRouter)
 
 const port = process.env.PORT;
-const url = process.env.URL;
+const uri = process.env.ATLAS_URI;
 
 
 
-mongoose.connect(url).then(() => {
+mongoose.connect(uri).then(() => {
     app.listen(port, () => {
         console.log(`server is running at ${port}`)
     })
