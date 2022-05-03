@@ -53,10 +53,10 @@ export const updateTicket = async (req, res) => {
 
 
 export const resolvedTicket = async (req, res) => {
-    // const ticket = req.body;mlm
+
 
     try {
-        console.log(req.body)
+
         const ticket = req.body;
         const { empid, ticket_desc, creator, _id } = ticket;
 
