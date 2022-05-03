@@ -16,11 +16,11 @@ app.use('/users',userRouter)
 app.use('/tickets',ticketRouter)
 
 const port = process.env.PORT;
+const url = process.env.URL;
 
-const URL = 'mongodb+srv://ojhavaibhav:vaibhav94@cluster0.smxxp.mongodb.net/mern-mean-ticket?retryWrites=true&w=majority';
 
 
-mongoose.connect(URL).then(() => {
+mongoose.connect(url).then(() => {
     app.listen(port, () => {
         console.log(`server is running at ${port}`)
     })
