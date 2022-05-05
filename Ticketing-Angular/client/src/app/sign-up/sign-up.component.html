@@ -1,0 +1,99 @@
+
+<div class="container p-3 my-3 ">
+    <div class="row">
+      <div class="col-md-4 offset-md-4">
+  
+        <h2>Register</h2>
+  
+        <form
+          (ngSubmit)="onRegisterSubmit(); registerForm.reset()"
+          #registerForm="ngForm"
+        >
+          <div class="form-group mb-3">
+            <label for="name" class="form-label">Fullname:</label>
+            <input
+              type="text"
+              class="form-control"
+              placeholder="Enter your name"
+              id="fullname"
+              required
+              minlength="8"
+              [(ngModel)]="model.fullname"
+              name="fullname"
+              #fullname="ngModel"
+            />
+            <div
+              *ngIf="fullname.invalid && (fullname.dirty || fullname.touched)"
+              class="alert alert-danger"
+            >
+              <div *ngIf="fullname.errors?.['required']">Name is required.</div>
+              <div *ngIf="fullname.errors?.['minlength']">
+                Name must be at least 8 characters long.
+              </div>
+            </div>
+          </div>
+  
+          <div class="form-group mb-3">
+            <label for="username" class="form-label">Username:</label>
+            <input
+              type="text"
+              class="form-control"
+              placeholder="Enter your username"
+              id="username"
+              required
+              minlength="8"
+              [(ngModel)]="model.username"
+              name="username"
+              #username="ngModel"
+            />
+            <div
+              *ngIf="username.invalid && (username.dirty || username.touched)"
+              class="alert alert-danger"
+            >
+              <div *ngIf="username.errors?.['required']">Username is required.</div>
+              <div *ngIf="username.errors?.['minlength']">
+                Username must be at least 8 characters long.
+              </div>
+            </div>
+          </div>
+  
+          
+  
+          <div class="form-group mb-3">
+            <label for="password" class="form-label">Password:</label>
+            <input
+              type="password"
+              class="form-control"
+              placeholder="Enter your password"
+              id="password"
+              required
+              pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$"
+              name="password"
+              #password="ngModel"
+              [(ngModel)]="model.password"
+            />
+            <div
+              *ngIf="password.invalid && (password.dirty || password.touched)"
+              class="alert alert-danger"
+            >
+              <div *ngIf="password.errors?.['required']">Password is required.</div>
+              <div *ngIf="password.errors?.['pattern']">
+                Password shall contain an uppercase, a lowercase and one numerical
+                or special characters. Length must be minimum 8 characters.
+              </div>
+            </div>
+          </div>
+  
+          <button
+            type="submit"
+            class="btn btn-primary "
+            [disabled]="!registerForm.form.valid"
+          >
+            Submit
+          </button>
+          
+        </form>
+      </div>
+    </div>
+  </div>
+  

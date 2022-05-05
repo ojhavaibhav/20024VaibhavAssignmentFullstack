@@ -103,6 +103,7 @@ export default function FormDialog() {
         <DialogTitle align="center">Add Ticket</DialogTitle>
         <DialogContent>
           <FormGroup>
+            
             <InputLabel htmlFor="empid" >Employee ID</InputLabel>
             <Input
               onChange={(e) => setticket({ ...ticket, empid: e.target.value })}
