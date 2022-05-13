@@ -4,15 +4,15 @@ import Ticket from '../model/ticket.js';
 
 export const createTicket = async (req, res) => {
     const ticket = req.body;
-
-    const newTicket = new Ticket({ ...ticket, creator: req.userId, create_at: new Date().toISOString(), Date: new Date().toISOString() })
-
+    const {empid, empname, ticket_desc} = ticket;
+    const newTicket = new Ticket({  empid, empname, ticket_desc, creator: empname, create_at: new Date().toISOString(), Date: new Date().toISOString() })
+    console.log(newTicket)
     try {
         const result = await newTicket.save();
-        res.status(200).json(newTicket)
+        res.status(200).json(result)
 
     } catch (error) {
-    
+    console.log(error)
         res.status(500).json({ message: error.message })
     }
 

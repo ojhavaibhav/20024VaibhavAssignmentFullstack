@@ -92,7 +92,13 @@
       </div>
     </div>
   </div>
-</div>
+</div><br>
+
+
+<mat-form-field appearance="standard">
+  <mat-label>Filter</mat-label>
+  <input matInput (keyup)="applyFilter($event)" placeholder="Filter here..." #input>
+</mat-form-field>
 
 
 <div class="mat-elevation-z8">
